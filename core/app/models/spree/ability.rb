@@ -30,6 +30,10 @@ module Spree
       if user.respond_to?(:has_spree_role?) && user.has_spree_role?('admin')
         apply_admin_permissions(user)
       else
+        if user.respond_to?(:has_spree_role?) && user.has_spree_role?('store manager')
+          apply_store_manager_permissions(user)
+        end
+
         apply_user_permissions(user)
       end
 
@@ -56,6 +60,10 @@ module Spree
     end
 
     def apply_admin_permissions(user)
+      can :manage, :all
+    end
+
+    def apply_store_manager_permissions(user)
       can :manage, :all
     end
 
