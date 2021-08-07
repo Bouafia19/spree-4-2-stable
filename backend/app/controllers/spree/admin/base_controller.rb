@@ -9,6 +9,9 @@ module Spree
       before_action :authorize_admin
       before_action :generate_admin_api_key
 
+      before_action :authorize_store_manager
+      before_action :generate_store_manager_api_key
+
       protected
 
       def action
@@ -25,9 +28,26 @@ module Spree
         authorize! action, record
       end
 
+      def authorize_store_manager
+        record = if respond_to?(:model_class, true) && model_class
+                   model_class
+                 else
+                   controller_name.to_sym
+                 end
+        authorize! :store_manager, record
+        authorize! action, record
+      end
+
+
       # Need to generate an API key for a user due to some backend actions
       # requiring authentication to the Spree API
       def generate_admin_api_key
+        if (user = try_spree_current_user) && user.spree_api_key.blank?
+          user.generate_spree_api_key!
+        end
+      end
+
+      def generate_store_manager_api_key
         if (user = try_spree_current_user) && user.spree_api_key.blank?
           user.generate_spree_api_key!
         end
