@@ -5,6 +5,11 @@ module Spree
                 before_action :load_data, except: :index
                 before_action :set_shipping_category, only: [:create, :update]
                 before_action :set_zones, only: [:create, :update]
+
+                def index
+                    @ShippingMethods = ShippingMethod.all
+                    render :json => @ShippingMethods
+                end
         
                 def destroy
                     authorize! :destroy, @object
