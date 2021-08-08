@@ -121,6 +121,8 @@ Spree::Core::Engine.add_routes do
       
       resources :shipping_methods
 
+      resources :shipping_categories
+
       
 
       resources :properties
