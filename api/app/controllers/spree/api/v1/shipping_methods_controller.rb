@@ -40,6 +40,7 @@ module Spree
                 @calculators = ShippingMethod.calculators.sort_by(&:name)
                 end
             end
+        end
     end
   end
   
