@@ -118,6 +118,8 @@ Spree::Core::Engine.add_routes do
         end
         resources :credit_cards, only: [:index]
       end
+      
+      resources :shipping_methods
 
       
 
