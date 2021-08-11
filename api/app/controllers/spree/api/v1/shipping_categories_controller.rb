@@ -4,8 +4,7 @@ module Spree
             class ShippingCategoriesController < Spree::Api::BaseController
                 def index
                     authorize! :index, ShippingCategory
-                    @shipping_category = ShippingCategory.accessible_by(current_ability).order('name ASC').
-                             ransack(params[:q])
+                    @shipping_category = ShippingCategory.accessible_by(current_ability).ransack(params[:q])
                     respond_with(@shipping_category)
                 end
 
