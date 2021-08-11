@@ -45,7 +45,7 @@ module Spree
                 end
 
                 def shipping_category_params
-                    params.require(:shipping_category)
+                    params
                 end
             end
         end
