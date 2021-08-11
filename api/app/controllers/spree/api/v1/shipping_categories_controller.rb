@@ -45,7 +45,7 @@ module Spree
                 end
 
                 def shipping_category_params
-                    params.require(:shipping_category).permit(permited_shipping_category_attributes)
+                    params.require(:shipping_category).permit(permitted_shipping_category_attributes)
                 end
             end
         end
