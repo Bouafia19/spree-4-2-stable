@@ -5,7 +5,8 @@ module Spree
                 def index
                     authorize! :index, ShippingCategory
                     @shipping_category = ShippingCategory.all
-                    respond_with(@shipping_category)
+                    #respond_with(@shipping_category)
+                    render :json => @shipping_category
                 end
 
                 def destroy
