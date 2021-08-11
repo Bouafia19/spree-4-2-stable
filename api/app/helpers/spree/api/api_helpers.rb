@@ -186,7 +186,7 @@ module Spree
       ]
 
       @@shipping_category_attributes = [
-        :id, :name
+        :id, :name, :preferences
       ]
 
       @@zone_attributes = [
