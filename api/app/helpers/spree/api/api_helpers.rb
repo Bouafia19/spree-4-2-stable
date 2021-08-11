@@ -34,7 +34,8 @@ module Spree
         :customer_return_attributes,
         :reimbursement_attributes,
         :shipping_method_attributes,
-        :shipping_category_attributes
+        :shipping_category_attributes,
+        :zone_attributes
       ]
 
       mattr_reader *ATTRIBUTES
@@ -95,7 +96,7 @@ module Spree
         :updated_at, :number
       ]
 
-      @@payment_method_attributes = [:id, :name, :description, :default_tax]
+      @@payment_method_attributes = [:id, :name, :description]
 
       @@shipment_attributes = [:id, :tracking, :number, :cost, :shipped_at, :state]
 
@@ -186,6 +187,10 @@ module Spree
 
       @@shipping_category_attributes = [
         :id, :name
+      ]
+
+      @@zone_attributes = [
+        :id, :name, :description, :default_tax
       ]
 
       def variant_attributes
