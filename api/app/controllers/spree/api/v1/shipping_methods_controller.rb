@@ -20,29 +20,29 @@ module Spree
                 private
         
                 def set_shipping_category
-                return true if params['shipping_method'][:shipping_categories].blank?
-        
-                @shipping_method.shipping_categories = Spree::ShippingCategory.where(id: params['shipping_method'][:shipping_categories])
-                @shipping_method.save
-                params[:shipping_method].delete(:shipping_categories)
+                    return true if params['shipping_method'][:shipping_categories].blank?
+            
+                    @shipping_method.shipping_categories = Spree::ShippingCategory.where(id: params['shipping_method'][:shipping_categories])
+                    @shipping_method.save
+                    params[:shipping_method].delete(:shipping_categories)
                 end
         
                 def set_zones
-                return true if params['shipping_method'][:zones].blank?
-        
-                @shipping_method.zones = Spree::Zone.where(id: params['shipping_method'][:zones])
-                @shipping_method.save
-                params[:shipping_method].delete(:zones)
+                    return true if params['shipping_method'][:zones].blank?
+            
+                    @shipping_method.zones = Spree::Zone.where(id: params['shipping_method'][:zones])
+                    @shipping_method.save
+                    params[:shipping_method].delete(:zones)
                 end
         
                 def location_after_save
-                edit_admin_shipping_method_path(@shipping_method)
+                    edit_admin_shipping_method_path(@shipping_method)
                 end
         
                 def load_data
-                @available_zones = Zone.order(:name)
-                @tax_categories = Spree::TaxCategory.order(:name)
-                @calculators = ShippingMethod.calculators.sort_by(&:name)
+                    @available_zones = Zone.order(:name)
+                    @tax_categories = Spree::TaxCategory.order(:name)
+                    @calculators = ShippingMethod.calculators.sort_by(&:name)
                 end
             end
         end
