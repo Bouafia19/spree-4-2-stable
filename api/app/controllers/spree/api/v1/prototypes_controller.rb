@@ -14,11 +14,13 @@ module Spree
                           end
   
             @prototypes = @prototypes.page(params[:page]).per(params[:per_page])
-            respond_with(@prototypes)
+            render :json => @prototypes
+            #respond_with(@prototypes)
           end
   
           def show
-            respond_with(@prototype)
+            render :json => @prototype
+            #respond_with(@prototype)
           end
   
           def new; end
