@@ -123,7 +123,7 @@ Spree::Core::Engine.add_routes do
 
       resources :shipping_categories
 
-      
+      resources :prototypes
 
       resources :properties
       resources :stock_locations do
