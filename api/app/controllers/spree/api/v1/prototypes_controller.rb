@@ -64,7 +64,7 @@ module Spree
           end
   
           def prototype_params
-            params.require(:prototype).permit(permitted_prototype_attributes)
+            params.require(:prototype).permit(:id, :name, :preferences)
           end
         end
       end
