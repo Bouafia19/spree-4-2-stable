@@ -88,7 +88,7 @@ module Spree
 
       @@line_item_attributes = [:id, :quantity, :price, :variant_id]
 
-      @@option_type_attributes = [:id, :name, :presentation, :position]
+      @@option_type_attributes = [:id, :name, :presentation, :position, :filterable]
 
       @@payment_attributes = [
         :id, :source_type, :source_id, :amount, :display_amount,
