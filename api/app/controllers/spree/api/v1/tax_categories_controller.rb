@@ -64,7 +64,7 @@ module Spree
           end
   
           def taxCategory_params
-            params.require(:taxCategory).permit(:id, :name, :preferences)
+            params.require(:taxCategory).permit(:id, :name, :description, :tax_code, :is_default)
           end
         end
       end
