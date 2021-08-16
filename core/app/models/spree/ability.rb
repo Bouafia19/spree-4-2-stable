@@ -64,7 +64,9 @@ module Spree
     end
 
     def apply_store_manager_permissions(user)
-      can :manage, :all
+      can :manage, ::Spree::StockLocation do |stock|
+        stock.id == user.store_manager_id
+      end
     end
 
     def apply_user_permissions(user)
