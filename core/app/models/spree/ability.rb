@@ -64,9 +64,98 @@ module Spree
     end
 
     def apply_store_manager_permissions(user)
+      
+
+      #can :manage, ::Spree::Base
+      can :manage, ::Spree::Payment 
+      can :manage, ::Spree::Order
+      #can :manage, ::Spree::User, id: user.id
+      can :manage, ::Spree::Preference
+      #can :manage, ::Spree::Role
+      can :manage, ::Spree::CreditCard
+      # product
+      can :manage, ::Spree::Product
+      can :manage, ::Spree::OptionValueVariant
+      can :manage, ::Spree::PropertyPrototype
+      can :manage, ::Spree::ProductProperty
+      can :manage, ::Spree::OptionType
+      can :manage, ::Spree::Taxon
+      can :manage, ::Spree::Taxonomy
+
+      can :manage, ::Spree::Store
+      
+      can :manage, ::Spree::Promotion
+      can :manage, ::Spree::PromotionRule
+      can :manage, ::Spree::StoreProduct
+      can :manage, ::Spree::PaymentMethod
+      can :manage, ::Spree::BillingIntegration
+      can :manage, ::Spree::Gateway
+      can :manage, ::Spree::Reimbursement
+      can :manage, ::Spree::Refund
+      
+      can :manage, ::Spree::ShippingCategory
+      can :manage, ::Spree::StoreCredit
+      
+      can :manage, ::Spree::ZoneMember
+      can :manage, ::Spree::Zone
+      can :manage, ::Spree::RefundReason
+      can :manage, ::Spree::ReturnAuthorization
+      
+      can :manage, ::Spree::Asset
+      can :manage, ::Spree::TaxonImage
+      can :manage, ::Spree::Image
+      can :manage, ::Spree::LegacyUser
+      can :manage, ::Spree::StoreCreditCategory
+      can :manage, ::Spree::StockTransfer
+      can :manage, ::Spree::ReturnItem
+      can :manage, ::Spree::Calculator
+      can :manage, ::Spree::StockMovement
+      
+      can :manage, ::Spree::Country
+      can :manage, ::Spree::ShippingMethodCategory
       can :manage, ::Spree::StockLocation do |stock|
         stock.id == user.store_manager_id
+
+
+        #address = Address.find(user_id: user.id)
+
+        #stock.state_id == user.state_id
       end
+      #can :manage, ::Spree::Address
+      can :manage, ::Spree::Shipment
+      can :manage, ::Spree::ShippingRate
+      can :manage, ::Spree::CustomerReturn
+      can :manage, ::Spree::PromotionAction
+      can :manage, ::Spree::InventoryUnit
+      can :manage, ::Spree::PromotionRuleUser
+      can :manage, ::Spree::StockItem
+      can :manage, ::Spree::Price
+      can :manage, ::Spree::State
+      can :manage, ::Spree::TaxRate
+      can :manage, ::Spree::ProductPromotionRule
+      can :manage, ::Spree::Classification
+      can :manage, ::Spree::PromotionCategory
+      can :manage, ::Spree::PaymentCaptureEvent
+      can :manage, ::Spree::PromotionRuleTaxon
+      can :manage, ::Spree::OrderPromotion
+      can :manage, ::Spree::StoreCreditEvent
+      can :manage, ::Spree::StateChange
+      can :manage, ::Spree::PrototypeTaxon
+      can :manage, ::Spree::Prototype
+      can :manage, ::Spree::TaxCategory
+      can :manage, ::Spree::ShippingMethodZone
+      can :manage, ::Spree::OptionTypePrototype
+      can :manage, ::Spree::LineItem
+      can :manage, ::Spree::ShippingMethod
+      can :manage, ::Spree::Adjustment
+      can :manage, ::Spree::StoreCreditType
+      can :manage, ::Spree::OptionValue
+      can :manage, ::Spree::ReturnAuthorizationReason
+      can :manage, ::Spree::ProductOptionType
+      can :manage, ::Spree::Variant
+      can :manage, ::Spree::LogEntry
+      can :manage, ::Spree::PromotionActionLineItem
+      can :manage, ::Spree::Property
     end
 
     def apply_user_permissions(user)
