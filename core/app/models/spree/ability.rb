@@ -86,7 +86,7 @@ module Spree
       
       can :manage, ::Spree::Promotion
       can :manage, ::Spree::PromotionRule
-      can :manage, ::Spree::StoreProduct
+      #can :manage, ::Spree::StoreProduct
       can :manage, ::Spree::PaymentMethod
       can :manage, ::Spree::BillingIntegration
       can :manage, ::Spree::Gateway
