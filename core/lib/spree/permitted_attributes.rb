@@ -113,7 +113,7 @@ module Spree
     ]
 
     # TODO: Should probably use something like Spree.user_class.attributes
-    @@user_attributes = [:email, :password, :password_confirmation]
+    @@user_attributes = [:email, :password, :password_confirmation, :store_manager_id]
 
     @@variant_attributes = [
       :name, :presentation, :cost_price, :discontinue_on, :lock_version,
