@@ -124,9 +124,8 @@ module Spree
       can :manage, ::Spree::InventoryUnit
       can :manage, ::Spree::PromotionRuleUser
       # Stock
-      can :manage, ::Spree::StockItem, ["stock_location_id == ?", user.store_manager_id] do |item|
-        item.stock_location_id == user.store_manager_id
-      end
+      can :manage, ::Spree::StockItem, ["stock_location_id == ?", user.store_manager_id] 
+      
       # can :manage, ::Spree::StockMovement do |movement|
       #   movement.stock_item_id == user.store_manager_id
       # end
