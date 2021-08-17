@@ -113,23 +113,32 @@ module Spree
       
       can :manage, ::Spree::Country
       can :manage, ::Spree::ShippingMethodCategory
+      ############################################
       can :manage, ::Spree::StockLocation do |stock|
         stock.id == user.store_manager_id
       end
+      can :manage, ::Spree::InventoryUnit
+      # Stock
+      can :manage, ::Spree::StockItem
+      # can :manage, ::Spree::StockItem, ["stock_location_id == ?", user.store_manager_id] do |item|
+      #   item.stock_location_id == user.store_manager_id
+      # end
+      can :manage, ::Spree::StockMovement
+      # can :manage, ::Spree::StockMovement do |movement|
+      #   movement.stock_item_id == user.store_manager_id
+      # end
+
+
       #can :manage, ::Spree::Address
       can :manage, ::Spree::Shipment
       can :manage, ::Spree::ShippingRate
       can :manage, ::Spree::CustomerReturn
       can :manage, ::Spree::PromotionAction
-      can :manage, ::Spree::InventoryUnit
+
+     
+
       can :manage, ::Spree::PromotionRuleUser
-      # Stock
-      # can :manage, ::Spree::StockItem, ["stock_location_id == ?", user.store_manager_id] do |item|
-      #   item.stock_location_id == user.store_manager_id
-      # end
-      # can :manage, ::Spree::StockMovement do |movement|
-      #   movement.stock_item_id == user.store_manager_id
-      # end
+      
 
       can :manage, ::Spree::Price
       can :manage, ::Spree::State
