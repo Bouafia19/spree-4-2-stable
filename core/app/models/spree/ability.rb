@@ -120,7 +120,7 @@ module Spree
       # end
       can :manage, ::Spree::InventoryUnit
       # Stock
-      can :manage, ::Spree::StockItem
+      #can :manage, ::Spree::StockItem
       # can :manage, ::Spree::StockItem, ["stock_location_id == ?", user.store_manager_id] do |item|
       #   item.stock_location_id == user.store_manager_id
       # end
