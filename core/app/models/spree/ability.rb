@@ -115,11 +115,6 @@ module Spree
       can :manage, ::Spree::ShippingMethodCategory
       can :manage, ::Spree::StockLocation do |stock|
         stock.id == user.store_manager_id
-
-
-        #address = Address.find(user_id: user.id)
-
-        #stock.state_id == user.state_id
       end
       #can :manage, ::Spree::Address
       can :manage, ::Spree::Shipment
@@ -128,7 +123,10 @@ module Spree
       can :manage, ::Spree::PromotionAction
       can :manage, ::Spree::InventoryUnit
       can :manage, ::Spree::PromotionRuleUser
-      can :manage, ::Spree::StockItem
+      can :manage, ::Spree::StockItem do |stockItem|
+        stockItem.stock_location_id == user.store_manager_id
+      end
+
       can :manage, ::Spree::Price
       can :manage, ::Spree::State
       can :manage, ::Spree::TaxRate
