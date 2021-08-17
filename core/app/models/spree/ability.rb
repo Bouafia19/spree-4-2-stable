@@ -109,7 +109,7 @@ module Spree
       can :manage, ::Spree::StockTransfer
       can :manage, ::Spree::ReturnItem
       can :manage, ::Spree::Calculator
-      can :manage, ::Spree::StockMovement
+      
       
       can :manage, ::Spree::Country
       can :manage, ::Spree::ShippingMethodCategory
@@ -123,8 +123,12 @@ module Spree
       can :manage, ::Spree::PromotionAction
       can :manage, ::Spree::InventoryUnit
       can :manage, ::Spree::PromotionRuleUser
-      can :manage, ::Spree::StockItem do |stockItem|
-        stockItem.stock_location_id == user.store_manager_id
+      # Stock
+      can :manage, ::Spree::StockItem do |item|
+        item.stock_location_id == user.store_manager_id
+      end
+      can :manage, ::Spree::StockMovement do |movement|
+        movement.stock_item_id == user.store_manager_id
       end
 
       can :manage, ::Spree::Price
