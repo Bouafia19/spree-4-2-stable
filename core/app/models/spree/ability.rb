@@ -106,7 +106,7 @@ module Spree
       can :manage, ::Spree::Image
       can :manage, ::Spree::LegacyUser
       can :manage, ::Spree::StoreCreditCategory
-      can :manage, ::Spree::StockTransfer
+      
       can :manage, ::Spree::ReturnItem
       can :manage, ::Spree::Calculator
       
@@ -120,11 +120,13 @@ module Spree
       # end
       can :manage, ::Spree::InventoryUnit
       # Stock
-      #can :manage, ::Spree::StockItem
+      
       # can :manage, ::Spree::StockItem, ["stock_location_id == ?", user.store_manager_id] do |item|
       #   item.stock_location_id == user.store_manager_id
       # end
       can :manage, ::Spree::StockMovement
+      can :manage, ::Spree::StockTransfer
+      can :manage, ::Spree::StockItem
       # can :manage, ::Spree::StockMovement do |movement|
       #   movement.stock_item_id == user.store_manager_id
       # end
