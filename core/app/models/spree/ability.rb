@@ -115,7 +115,8 @@ module Spree
       can :manage, ::Spree::ShippingMethodCategory
       ############################################
       #can :manage, ::Spree::StockLocation
-      can :manage, ::Spree::StockLocation do |stock|
+      can :manage, ::Spree::StockLocation, Spree::StockLocation.where(id: user.store_manager_id) do |stock|
+        #Spree::StockLocation.where("id = ?", user.store_manager_id)
         stock.id == user.store_manager_id
       end
       can :manage, ::Spree::InventoryUnit
