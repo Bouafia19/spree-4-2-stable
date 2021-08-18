@@ -114,10 +114,10 @@ module Spree
       can :manage, ::Spree::Country
       can :manage, ::Spree::ShippingMethodCategory
       ############################################
-      can :manage, ::Spree::StockLocation
-      # can :manage, ::Spree::StockLocation do |stock|
-      #   stock.id == user.store_manager_id
-      # end
+      #can :manage, ::Spree::StockLocation
+      can :manage, ::Spree::StockLocation do |stock|
+        stock.id == user.store_manager_id
+      end
       can :manage, ::Spree::InventoryUnit
       # Stock
       
