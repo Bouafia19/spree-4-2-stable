@@ -127,6 +127,8 @@ Spree::Core::Engine.add_routes do
 
       resources :tax_categories
 
+      resources :stock_transfers
+
       resources :properties
       resources :stock_locations do
         resources :stock_movements
